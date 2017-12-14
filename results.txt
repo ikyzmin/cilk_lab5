@@ -1,0 +1,34 @@
+Cilk_____________
+Size(100x100)
+Average time is 0.003443 seconds
+Size(200x200)
+Average time is 0.039770 seconds
+Size(500x500)
+Average time is 0.859268 seconds
+Size(1000x1000)
+Average time is 3.967673 seconds
+Size(2000x2000)
+Average time is 23.258901 seconds
+Size(3000x3000)
+Average time is 73.156347 seconds
+Size(4000x4000)
+Average time is 172.117335 seconds
+Size(5000x5000)
+Average time is 363.921386 seconds
+OpenMp___________
+Size(100x100)
+Average time is 0.008004 seconds
+Size(200x200)
+Average time is 0.030709 seconds
+Size(500x500)
+Average time is 0.441368 seconds
+Size(1000x1000)
+Average time is 3.286491 seconds
+Size(2000x2000)
+Average time is 24.577748 seconds
+Size(3000x3000)
+Average time is 84.534473 seconds
+Size(4000x4000)
+Average time is 188.175640 seconds
+Size(5000x5000)
+Average time is 362.021954 second
