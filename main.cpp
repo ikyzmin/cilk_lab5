@@ -97,12 +97,20 @@ void restartExperiment(int TYPE) {
     bool **adj_matrix;
     int **cost;
     double averageTime;
-    if (TYPE == SERIAL)
-        printf("Serial___________\n");
-    if (TYPE == CILK)
-        printf("Cilkl____________\n");
-    if (TYPE == OPENMP)
-        printf("OpenMp___________\n");
+    switch (TYPE) {
+        case SERIAL:
+            printf("Serial___________\n");
+            break;
+        case CILK:
+            printf("Cilk_____________\n");
+            break;
+        case OPENMP:
+            printf("OpenMp___________\n");
+            break;
+        default:
+            printf("Experiment type undefined");
+            return;
+    }
     for (int i = 0; i < 8; i++) {
         averageTime = 0;
         adj_matrix = (bool **) calloc(lengths[i], sizeof(bool *));
@@ -128,7 +136,7 @@ void restartExperiment(int TYPE) {
                     dijkstrainitCilk(adj_matrix, cost, lengths[i]);
                     break;
                 case OPENMP:
-#pragma omp parallel num_threads(8)
+#pragma omp parallel num_threads(4)
 #pragma omp single
                     dijkstrainitOmp(adj_matrix, cost, lengths[i]);
                     break;
@@ -148,8 +156,8 @@ void restartExperiment(int TYPE) {
 }
 
 int main() {
-    __cilkrts_set_param("nworkers", "8");
-    restartExperiment(SERIAL);
+    __cilkrts_set_param("nworkers", "4");
+    //restartExperiment(SERIAL);
     restartExperiment(CILK);
     restartExperiment(OPENMP);
 }
