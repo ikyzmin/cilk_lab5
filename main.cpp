@@ -139,10 +139,6 @@ void restartExperiment(int TYPE) {
 #pragma omp parallel num_threads(4)
 #pragma omp single
                     dijkstrainitOmp(adj_matrix, cost, lengths[i]);
-                    break;
-                default:
-                    printf("undefined type");
-
             }
 
             double fn = omp_get_wtime();
@@ -157,7 +153,7 @@ void restartExperiment(int TYPE) {
 
 int main() {
     __cilkrts_set_param("nworkers", "4");
-    //restartExperiment(SERIAL);
+    restartExperiment(SERIAL);
     restartExperiment(CILK);
     restartExperiment(OPENMP);
 }
